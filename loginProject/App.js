@@ -3,7 +3,7 @@ import { StyleSheet, Platform, Image, Text, View, ScrollView } from 'react-nativ
 
 import firebase from 'react-native-firebase';
 import FacebookLoginButton from './app/components/FacebookLoginButton';
-//import GoogleLoginButton from './app/components/GoogleLoginButton';
+import GoogleLoginButton from './app/components/GoogleLoginButton';
 
 export default class App extends React.Component {
   constructor() {
@@ -44,7 +44,7 @@ export default class App extends React.Component {
             {firebase.auth.nativeModuleExists && <Text style={styles.module}>auth()</Text>}
           </View>
           <FacebookLoginButton />
-          {/* <GoogleLoginButton /> */}
+          <GoogleLoginButton />
         </View>
       </ScrollView>
     );

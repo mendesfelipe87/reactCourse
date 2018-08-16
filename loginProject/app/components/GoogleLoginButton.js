@@ -1,12 +1,12 @@
-// import React, { Component } from 'react';
-// import { Button } from 'react-native';
-// import googleLogin from '../classes/GoogleLogin';
+import React, { Component } from 'react';
+import { Button } from 'react-native';
+import googleLogin from '../classes/GoogleLogin';
 
-// export default class GoogleLoginButton extends Component {
+export default class GoogleLoginButton extends Component {
 
-//     render () {
-//         return (
-//             <Button onPress={() => {googleLogin()}} title="Google Login" />
-//         );
-//     }
-// }
+    render () {
+        return (
+            <Button onPress={() => {googleLogin()}} title="Google Login" />
+        );
+    }
+}
