@@ -1,0 +1,30 @@
+{
+  "name": "lastProject",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "babel-core": "^7.0.0-bridge.0",
+    "es6-symbol": "^3.1.1",
+    "jsc-android": "224109.x.x",
+    "mobx": "^5.0.3",
+    "mobx-react": "^5.2.3",
+    "react": "16.4.1",
+    "react-native": "0.56.0",
+    "react-navigation": "^2.9.0"
+  },
+  "devDependencies": {    
+    "@babel/plugin-proposal-decorators": "7.0.0-beta.47",
+    "@babel/plugin-syntax-decorators": "7.0.0-beta.47",
+    "babel-jest": "23.4.0",
+    "babel-preset-react-native": "^5.0.2",
+    "jest": "23.4.1",
+    "react-test-renderer": "16.4.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
