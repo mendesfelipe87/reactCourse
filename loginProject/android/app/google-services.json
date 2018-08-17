@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "102790865080",
+    "firebase_url": "https://astute-strategy-213211.firebaseio.com",
+    "project_id": "astute-strategy-213211",
+    "storage_bucket": "astute-strategy-213211.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:102790865080:android:bb829fed41eb12fa",
+        "android_client_info": {
+          "package_name": "com.loginproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "102790865080-n7iar6hiq14cmq1v8dsuhjeea00qs885.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3IHkcSrXY2okbVN-C_K3wg4kQUmPTzvc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
