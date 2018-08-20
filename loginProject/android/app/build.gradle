@@ -137,24 +137,13 @@ android {
 }
 
 dependencies {
-    implementation (project(':react-native-firebase')){
-        exclude group: "com.google.android.gms"
-    }
-    implementation project(':react-native-fbsdk')
-    implementation (project(":react-native-google-signin")){
-        exclude group: "com.google.android.gms" // very important
-    }
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation "com.facebook.react:react-native:+"  // From node_modules
-    implementation ("com.google.android.gms:play-services-auth-base:15.0.1"){
-        force = true; 
-    }
-    implementation 'com.facebook.android:facebook-android-sdk:[4,5)' 
-    implementation ("com.google.firebase:firebase-core:16.0.1"){
-        force = true;
-    }
-    implementation ("com.google.firebase:firebase-auth:16.0.2"){
+    implementation (project(':react-native-firebase'))
+    implementation project(':react-native-fbsdk')
+    implementation (project(":react-native-google-signin"))
+    implementation ('com.facebook.android:facebook-android-sdk:[4,5)'){
         force = true;
     }
     implementation ("com.google.android.gms:play-services-base:15.0.1"){
@@ -162,6 +151,15 @@ dependencies {
     }
     implementation ("com.google.android.gms:play-services-auth:15.0.1"){
         force = true; 
+    }
+    implementation ("com.google.android.gms:play-services-auth-base:15.0.1"){
+        force = true; 
+    }
+    implementation ("com.google.firebase:firebase-core:16.0.1"){
+        force = true;
+    }
+    implementation ("com.google.firebase:firebase-auth:16.0.2"){
+        force = true;
     }
 }
 
