@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Platform, Image, Text, View, ScrollView } from 'react-native';
 
 import firebase from 'react-native-firebase';
-import FacebookLoginButton from './app/components/FacebookLoginButton';
-import GoogleLoginButton from './app/components/GoogleLoginButton';
+import SocialLoginButton from './app/components/SocialLoginButton';
+import FacebookClass from './app/classes/FacebookClass';
+import GoogleClass from './app/classes/GoogleClass';
 
-export default class App extends React.Component {
-  constructor() {
-    super();
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.facebookClass = new FacebookClass();
+    this.googleClass = new GoogleClass();
     this.state = {
       // firebase things?
     };
@@ -21,7 +24,7 @@ export default class App extends React.Component {
     return (
       <ScrollView>
         <View style={styles.container}>
-          <Image source={require('./assets/RNFirebase.png')} style={[styles.logo]}/>
+          <Image source={require('./assets/RNFirebase.png')} style={[styles.logo]} />
           <Text style={styles.welcome}>
             Welcome to {'\n'} React Native Firebase
           </Text>
@@ -34,17 +37,19 @@ export default class App extends React.Component {
               Cmd+D or shake for dev menu
             </Text>
           ) : (
-            <Text style={styles.instructions}>
-              Double tap R on your keyboard to reload,{'\n'}
-              Cmd+M or shake for dev menu
+              <Text style={styles.instructions}>
+                Double tap R on your keyboard to reload,{'\n'}
+                Cmd+M or shake for dev menu
             </Text>
-          )}
+            )}
           <View style={styles.modules}>
             <Text style={styles.modulesHeader}>The following Firebase modules are pre-installed:</Text>
             {firebase.auth.nativeModuleExists && <Text style={styles.module}>auth()</Text>}
           </View>
-          <FacebookLoginButton />
-          <GoogleLoginButton />
+          <SocialLoginButton callback={() => {this.facebookClass.facebookLogin()}} title={this.facebookClass.title} />
+          <SocialLoginButton callback={() => {this.googleClass.googleLogin()}} title={this.googleClass.title} />
+
+          <Image source={this.facebookClass.loggedUser.photoUrl} style={[styles.logo]} />
         </View>
       </ScrollView>
     );
