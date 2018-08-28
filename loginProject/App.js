@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { SafeAreaView } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import { Provider } from 'mobx-react/native';
-import Stores from './app/stores/RootStores';
+import Stores from './app/stores/RootStore';
 import LoginScreen from './app/screen/LoginScreen';
 import LoggedInScreen from './app/screen/LoggedInScreen';
 

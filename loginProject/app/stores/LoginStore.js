@@ -1,8 +1,8 @@
-import { observable, action } from 'mobx';
-import BaseStore from './BaseStores';
+import { observable, action, toJS } from 'mobx';
+import BaseStore from './BaseStore';
 import { AccessToken, LoginManager } from 'react-native-fbsdk';
 import { GoogleSignin } from 'react-native-google-signin';
-import firebase from 'react-native-firebase'
+import firebase from 'react-native-firebase';
 
 export default class LoginStore extends BaseStore {
 
@@ -39,7 +39,7 @@ export default class LoginStore extends BaseStore {
             const currentUser = await firebase.auth().signInAndRetrieveDataWithCredential(credential);
 
             this.loggedUser = currentUser.user.toJSON();
-            console.info(JSON.stringify(this.loggedUser));
+            console.info(toJS(this.loggedUser));
         } catch (e) {
             console.error(e);
         }
@@ -64,7 +64,7 @@ export default class LoginStore extends BaseStore {
             const currentUser = await firebase.auth().signInAndRetrieveDataWithCredential(credential);
 
             this.loggedUser = currentUser.user.toJSON();
-            console.info(JSON.stringify(currentUser.user.toJSON()));
+            console.info(toJS(this.loggedUser));
         } catch (e) {
             console.error(e);
         }

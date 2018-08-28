@@ -1,37 +1,24 @@
+import React, { Component } from 'react';
 import { StyleSheet, Platform, Image, Text, View, ScrollView } from 'react-native';
-
+import { observer, inject } from 'mobx-react/native';
 import firebase from 'react-native-firebase';
-import SocialLoginButton from './app/components/SocialLoginButton';
+import SocialLoginButton from '../components/SocialLoginButton';
 
 @inject('loginStore')
 @observer
 export default class LoginScreen extends Component {
-  constructor(props) {
-    super(props);
-  }
-  
-  loginPeloFacebook() {
-    await loginStore.facebookLogin();
-    navigate('LoggedIn');
-  }
-
-  loginPeloGoogle() {
-    await loginStore.googleLogin();
-    navigate('LoggedIn');
-  }
 
   componentDidMount() {
     // firebase things?
   }
 
   render() {
-    const { loginStore } = this.props;
-    const { navigate } = this.props.navigation;
-
+    const { loginStore } = this.props; 
+    
     return (
       <ScrollView>
         <View style={styles.container}>
-          <Image source={require('./assets/RNFirebase.png')} style={[styles.logo]} />
+          <Image source={require('../../assets/RNFirebase.png')} style={[styles.logo]} />
           <Text style={styles.welcome}>
             Welcome to {'\n'} React Native Firebase
             </Text>
@@ -53,11 +40,25 @@ export default class LoginScreen extends Component {
             <Text style={styles.modulesHeader}>The following Firebase modules are pre-installed:</Text>
             {firebase.auth.nativeModuleExists && <Text style={styles.module}>auth()</Text>}
           </View>
-          <SocialLoginButton callback={() => { this.loginPeloFacebook() }} title={loginStore.titleFacebook} />
-          <SocialLoginButton callback={() => { this.loginPeloGoogle() }} title={loginStore.titleGoogle} />
+          <SocialLoginButton callback={async () => await this.loginPeloFacebook()} title={loginStore.titleFacebook} />
+          <SocialLoginButton callback={async () => await this.loginPeloGoogle()} title={loginStore.titleGoogle} />
         </View>
       </ScrollView>
     );
+  }
+
+  loginPeloFacebook = async () => {
+    const { loginStore } = this.props; 
+    const { navigate } = this.props.navigation;
+    await loginStore.facebookLogin();
+    navigate('LoggedIn');
+  }
+
+  loginPeloGoogle = async () => {
+    const { loginStore } = this.props; 
+    const { navigate } = this.props.navigation;
+    await loginStore.googleLogin();
+    navigate('LoggedIn');
   }
 }
 
